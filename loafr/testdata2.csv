@@ -1,0 +1,4 @@
+logFileType,timestamp,eventType,deviceID,eventMessage,sugarLevel
+bs,2020/10/01 03:12:10,success,BS001,success: blood sugar is 15,15
+bs,2021/10/01 10:12:10,error,BS001,error: blood sugar 10,10
+bs,2022/10/01 15:12:10,warning,BS001,warning: blood sugar is 5,5
