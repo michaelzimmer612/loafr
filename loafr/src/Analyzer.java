@@ -16,44 +16,57 @@ public class Analyzer {
 		
 	}
 	
+	// Purpose: Calls Helper function LogFile.readLogFile to read in csv logfile and return populated Logfile.
+    //          Adds populated Logfile to logFileList.
+	// Parameters:
+	//   1. filepath:String - filepath for csv of log data
+	// Pre-conditions:
+	//   1. filepath has a valid csv with comma delimited fields
+	// Post-conditions:
+	//   1. Analyzer object has a logfile object with log data added to logFileList.
+	// Returns: LogFile object
 	public LogFile addLogFile(String filepath) throws FileNotFoundException {
-		LogFile log = new LogFile(filepath);
-		
-		File f = new File(filepath);
-		Scanner s = new Scanner(f);
-		s.useDelimiter(",");
-		
-		s.nextLine();    //skip line of column name
-		String[] currentRow = new String[6];
-		
-		for(int j = 0; j < 3; j++) {
-			for(int i = 0; i < 6; i++) {
-				currentRow[i] = s.next();
-			}
-			
-			log.addLogEntry(currentRow);
-		}
+		LogFile log = LogFile.readLogFile(filepath);
 		
 		this.logFileList.add(log);
-		
-		s.close();
 		
 		return log;
 	}
 	
 	
-	
+	// Purpose: Add a filter, sort, or search to operationList and perform operation
+	// Parameters:
+	//   1. opColumn:String - Name of column on which the operation is performed
+	//   2. filterValue:int - Filter value
+	//   3. filterIncludes:boolean - If true, rows = filterValue included in filtered output. If false, excluded
+	// Pre-conditions:
+	//   1. logFileList in Analyzer is non-empty
+	// Post-conditions:
+	//   1. Operation added to logFileList and log entries booleans updated per operation
+	// Returns: 1 (success), 0 (failure)
 	public int addOperation(String op, String opColumn, int filterValue, boolean filterIncludes) {
-		Operation newOp = new Operation(opColumn, filterValue, filterIncludes);
+		
+		int logFileCount = this.logFileList.size();
+		if(logFileCount == 0) {
+			System.out.println("No data to perform operation");
+			return 0;
+		}
+		
+		String opColumnLow = opColumn.toLowerCase();
+		
+		if(!(opColumnLow.equals("sugarlevel") || opColumnLow.equals("timestamp") || opColumnLow.equals("eventType") ||
+				opColumnLow.equals("deviceid") || opColumnLow.equals("eventmessage"))) {
+			
+			System.out.println("Invalid column name");
+			
+			return 0;
+		}
 		
 		if(op.equals("filter")) {
-			Operation f = new Operation(opColumn, filterValue, filterIncludes);
-			
-			int logFileCount = this.logFileList.size();
+			Filter newOp = new Filter(opColumnLow, filterValue, filterIncludes);
 			
 			for(int i = 0; i < logFileCount; i++) {
-				this.logFileList.get(i).setFilter(f);
-
+				this.logFileList.get(i).setFilter(newOp);
 			}
 			
 			this.operationList.add(newOp);
