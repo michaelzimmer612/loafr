@@ -7,7 +7,7 @@ public class Test {
 		Analyzer a = new Analyzer();
 		
 		System.out.println("Original Data:");
-		a.addLogFile("testdata2.csv");
+		a.addLogFile("/home/michael/git/loafr-rep/loafr/testdata2.csv");
 		a.printAnalyzerData();
 		System.out.println();
 		
