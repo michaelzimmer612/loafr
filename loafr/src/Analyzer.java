@@ -25,7 +25,7 @@ public class Analyzer {
 	// Post-conditions:
 	//   1. Analyzer object has a logfile object with log data added to logFileList.
 	// Returns: LogFile object
-	public LogFile addLogFile(String filepath) throws FileNotFoundException {
+	public LogFile addLogFile(String filepath) {
 		LogFile log = LogFile.readLogFile(filepath);
 		
 		this.logFileList.add(log);

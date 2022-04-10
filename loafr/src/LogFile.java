@@ -23,12 +23,12 @@ public class LogFile {
 		
 		if(rowData[0].equals("bs")) {
 			String sugarLevel = rowData[5];
-			System.out.println(logType);
-			System.out.println(timestamp);
-			System.out.println(eventType);
-			System.out.println(deviceID);
-			System.out.println(eventMessage);
-			System.out.println(sugarLevel);
+			//System.out.println(logType);
+			//System.out.println(timestamp);
+			//System.out.println(eventType);
+			//System.out.println(deviceID);
+			//System.out.println(eventMessage);
+			//System.out.println(sugarLevel);
 			
 			BloodSensorLogEntry newEntry = new BloodSensorLogEntry(logType, timestamp, eventType, deviceID, eventMessage, sugarLevel);
 			this.logEntryList.add(newEntry);
@@ -51,25 +51,27 @@ public class LogFile {
 	// Post-conditions:
 	//   1. Analyzer object has a logfile object with log data added to logFileList.
 	// Returns: LogFile object
-	public static LogFile readLogFile(String filepath) throws FileNotFoundException {
-		
-			LogFile log = new LogFile(filepath);
-			
+	public static LogFile readLogFile(String filepath) {
+
+		LogFile log = new LogFile(filepath);
+
+		try {
 			File f = new File(filepath);
 			Scanner s = new Scanner(f);
-			s.useDelimiter("\\n");
 			
+			s.useDelimiter("\\n");
+
 			String current = s.next();         
 			String[] currentRow;
-			
+
 			// Read in header data and get column count
 			currentRow = current.split(",");
 			int colCount = currentRow.length;
-			
+
 			// Create log entry for each row and add to LogFile
 			while(s.hasNext()) {
 				current = s.next();
-				
+
 				// Discard empty rows
 				if(current.length() > 1) {
 					currentRow = current.split(",", colCount);
@@ -77,7 +79,11 @@ public class LogFile {
 				}
 			}
 			
-		s.close();
+			s.close();
+			
+		} catch(FileNotFoundException e) {
+			System.out.println(e);
+		}
 		
 		return log;
 	}

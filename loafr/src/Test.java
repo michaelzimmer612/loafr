@@ -1,9 +1,7 @@
 
-import java.io.FileNotFoundException;
-
 public class Test {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 		Analyzer a = new Analyzer();
 		
 		System.out.println("Original Data:");
@@ -19,18 +17,21 @@ public class Test {
 		System.out.println("Filtered for rows with sugarlevel != 15 :");
 		a.addOperation("filter", "sugarLevel", 15, false);
 		a.printUnfilteredData();
+		System.out.println();
 		
 		System.out.println("Filtered for rows with sugarlevel != 5 :");
 		a.addOperation("filter", "sugarLevel", 5, false);
 		a.printUnfilteredData();
+		System.out.println();
 		
 		System.out.println("Filtered for rows with sugarlevel = 350 :");
 		a.addOperation("filter", "sugarLevel", 350, true);
 		a.printUnfilteredData();
+		System.out.println();
 		
 		System.out.println("Filtered for rows with sugarlevel = 5 :");
 		a.addOperation("filter", "sugarLevel", 5, true);
 		a.printUnfilteredData();
-		
+		System.out.println();
 	}
 }
