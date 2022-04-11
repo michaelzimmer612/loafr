@@ -28,7 +28,8 @@ Files Included:
      and Search operations
     a. Filter.java Subclass: Extended class object to store parameters of a filter
        operation
-  5. Test.java: A test class is included for each class above
+  5. Test.java: A test class is included for each class above. Currently set as the main file to run all unit tests as well as display output of 
+    end-to-end use case scenario.
   6. Unit Testing Classes: <Class Name>Test.java
      Unit testing for each class is included a "Testing" class with
      the same name.
