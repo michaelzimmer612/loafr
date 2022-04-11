@@ -162,4 +162,14 @@ public class LogFile {
 		
 		return;
 	}
+	
+	public ArrayList<LogEntry> getLogEntryList(){
+		return this.logEntryList;
+	}
+	
+	public String getFilePath(){
+		return this.filepath;
+	}
+	
+	
 }

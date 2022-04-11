@@ -100,6 +100,14 @@ public class Analyzer {
 		return;
 	}
 	
+	public ArrayList<LogFile> getLogFileList() {
+		return this.logFileList;
+	}
+	
+	public ArrayList<Operation> getOperationList(){
+		return this.operationList;
+	}
+	
 
 }
 	

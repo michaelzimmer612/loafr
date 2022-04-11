@@ -30,7 +30,7 @@ class AnalyzerTest extends Analyzer {
 		assert this.getLogFileList()!=null:"failed to log file list";
 		
 		
-		System.out.println("completed testing analizer variable declaration");
+		System.out.println("test passed");
 		//assert(typeof a !== 'undefined')
 		//fail("Not yet implemented");
 	}
@@ -40,7 +40,7 @@ class AnalyzerTest extends Analyzer {
 	 */
 	@Test
 	void testAddLogFile(String filepath) {
-		System.out.println("begining add log file function test");
+		System.out.println("testing add log file function");
 		try {
 			this.addLogFile(filepath);
 		}
@@ -48,7 +48,7 @@ class AnalyzerTest extends Analyzer {
 			System.out.println("failed to import log file with exceptiom: "+e);
 		}
 		
-		System.out.println("completed add log file function test");
+		System.out.println("test passed");
 	}
 
 	/**
@@ -63,7 +63,7 @@ class AnalyzerTest extends Analyzer {
 		Operation testOutput =this.getOperationList().get(0);
 		assert testOutput.getOpColumn()==testFilter.getOpColumn(): "input filter list values do not match operation list";
 		assert testOutput.getTimeStamp()==testFilter.getTimeStamp(): "input filter list values do not match operation list";
-		System.out.println("completed add operation function test");
+		System.out.println("test passed");
 		//fail("Not yet implemented");
 		//Filter@4590c9c3
 	}
@@ -80,8 +80,9 @@ class AnalyzerTest extends Analyzer {
 	
 	//this function runs all the tests in this class
 	void runTests() {
-		this.testAddLogFile("testdata2.csv");
 		this.testAnalyzer();
+		this.testAddLogFile("testdata2.csv");
+		
 		this.testAddOperation("filter", "sugarLevel", 5, false);
 		
 	}

@@ -19,7 +19,9 @@ public class LogEntry {
 	
 	public LogEntry(String logFileType, String timestamp, String eventType, String deviceID, 
 					String eventMessage) {
-	
+		//System.out.println(timestamp);
+		
+		
 		this.logFileType = logFileType;
 		this.timestamp = LocalDateTime.parse(timestamp, dtf);
 		this.eventType = eventType;
@@ -30,6 +32,10 @@ public class LogEntry {
 	
 	public void setTimestampFilter(boolean b) {
 		this.timestampIsFiltered = b;
+	}
+	
+	public boolean getTimestampFilter() {
+		return this.timestampIsFiltered;
 	}
 	
 	
@@ -53,5 +59,9 @@ public class LogEntry {
 		s = s + this.deviceID  + ", " + this.eventMessage;
 		
 		return s;
+	}
+	
+	public String getLogFileType() {
+		return this.logFileType;
 	}
 }

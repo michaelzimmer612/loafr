@@ -51,7 +51,7 @@ class LogFileTest extends LogFile  {
 		System.out.println("testing log file read file function");
 		String fileNameTestData = "testdata2.csv";
 		this.readLogFile(fileNameTestData);
-		assert this.size()==1 : "number of log files imported is incorrect"
+		assert this.size()==1 : "number of log files imported is incorrect";
 		System.out.println("test passed");
 	}
 
