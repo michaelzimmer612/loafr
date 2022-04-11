@@ -37,7 +37,7 @@ Files Included:
 How to build and execute LOAFR system:
   1. Optional: Change logfile test data by changing the filepath
      in the main method of Test.java
-  2. In teriminal, compile files 1, 2, 3, 3a, 4, 4a, and 5 above with the 
+  2. In terminal, compile files 1, 2, 3, 3a, 4, 4a, and 5 above with the 
      javac command
   3. Run "java Test"
   4. Original logfile data and filtered data output to terminal
