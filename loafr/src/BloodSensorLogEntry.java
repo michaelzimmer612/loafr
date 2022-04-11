@@ -1,4 +1,5 @@
 
+// Traced to Section 4.2.3 of Design Document v1.4
 public class BloodSensorLogEntry extends LogEntry {
 	private int sugarLevel;
 	private boolean sugarLevelIsFiltered = false;

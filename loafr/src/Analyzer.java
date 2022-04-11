@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.io.*;
 
 
+// Traced to Section 4.2.5 of Design Document v1.4
 public class Analyzer {
 	private ArrayList<LogFile> logFileList;
 	private ArrayList<Operation> operationList; 

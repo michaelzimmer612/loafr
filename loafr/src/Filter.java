@@ -1,4 +1,5 @@
 
+// Traced to Section 4.2.6 of Design Document v1.4
 public class Filter extends Operation {
 	
 	private int filterValue;

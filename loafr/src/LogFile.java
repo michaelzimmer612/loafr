@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 
-
+// Traced to Section 4.2.1 of Design Document v1.4
 public class LogFile {
 	private String filepath;
 	private ArrayList<LogEntry> logEntryList;
