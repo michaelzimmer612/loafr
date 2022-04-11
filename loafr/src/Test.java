@@ -46,7 +46,7 @@ public class Test {
 		
 		System.out.println("Beginning Filter Class Unit Tests");
 		FilterTest testFilter = new FilterTest("timestamp",11,false);
-		testFilter.runtTests();
+		testFilter.runTests();
 		
 		System.out.println("Completed Filter Class Unit Tests");
 		
