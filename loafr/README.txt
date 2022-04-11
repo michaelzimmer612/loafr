@@ -28,17 +28,16 @@ Files Included:
      and Search operations
     a. Filter.java Subclass: Extended class object to store parameters of a filter
        operation
-  5. Test.java: A test class is included for each class above. Currently set as the main file to run all unit tests as well as display output of 
-    end-to-end use case scenario.
+  5. Test.java: A test class is included for each class above. Currently set as the main file to 
+     run all unit tests as well as display output of end-to-end use case scenario.
   6. Unit Testing Classes: <Class Name>Test.java
      Unit testing for each class is included a "Testing" class with
      the same name.
 
-How to build and execute LOAFR system:
+How to build LOAFR system and run unit testing:
   1. Optional: Change logfile test data by changing the filepath
      in the main method of Test.java
-  2. In terminal, compile files 1, 2, 3, 3a, 4, 4a, and 5 above with the 
-     javac command
+  2. In terminal, compile files all files list above with the javac command
   3. Run "java Test"
   4. Original logfile data and filtered data output to terminal
 
