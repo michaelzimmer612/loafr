@@ -8,7 +8,7 @@ Repository Description:
 Team 12 Group Members:
   -Sal Farah
   -Sean Coffey
-  -Deb Dabarati
+  -Deb Das
   -Michael Zimmer
 
 Version: 0.1
