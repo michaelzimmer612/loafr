@@ -101,6 +101,34 @@ public class Analyzer {
 		return;
 	}
 	
+	
+	public int count() {
+		int numLogFiles = getLogFileList().size();
+		int count = 0;
+		
+		for(int i = 0; i < numLogFiles; i++) {
+			LogFile currentLogFile = getLogFileList().get(i);
+			ArrayList<BloodSensorLogEntry> logEntries = currentLogFile.getLogEntryList();
+			int numLogEntries = currentLogFile.size();
+			
+			for(int j = 0; j < numLogEntries; j++) {
+				BloodSensorLogEntry currentEntry = logEntries.get(j);
+				boolean deviceIDBool = currentEntry.getDeviceIDFilter();
+				boolean timestampBool = currentEntry.getTimestampFilter();
+				boolean eventTypeBool = currentEntry.getEventTypeFilter();
+				boolean eventMessageBool = currentEntry.getEventMessageFilter();
+				boolean sugarLevelBool = currentEntry.getSugarLevelFilter();
+				
+				if(!(deviceIDBool || timestampBool || eventTypeBool || eventMessageBool || sugarLevelBool)) {
+					count++;
+				}
+			}
+		}
+		
+		return count;
+	}
+	
+	
 	public ArrayList<LogFile> getLogFileList() {
 		return this.logFileList;
 	}

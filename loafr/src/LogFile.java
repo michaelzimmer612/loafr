@@ -6,7 +6,7 @@ import java.io.*;
 // Traced to Section 4.2.1 of Design Document v1.4
 public class LogFile {
 	private String filepath;
-	private ArrayList<LogEntry> logEntryList;
+	private ArrayList<BloodSensorLogEntry> logEntryList;
 	
 	public LogFile(String filepath) {
 		this.filepath = filepath;
@@ -163,7 +163,7 @@ public class LogFile {
 		return;
 	}
 	
-	public ArrayList<LogEntry> getLogEntryList(){
+	public ArrayList<BloodSensorLogEntry> getLogEntryList(){
 		return this.logEntryList;
 	}
 	
