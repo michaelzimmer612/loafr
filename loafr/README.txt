@@ -1,4 +1,4 @@
-P4 - Implementation and Testing
+LOAFR System
 
 Repository Description:
   -Implement limited LOAFR functionality to load csv logfile data
@@ -10,9 +10,29 @@ Team 12 Group Members:
   -Sean Coffey
   -Deb Das
   -Michael Zimmer
+  
+
+P5 - Agile / Scrum Development
+
+Version: 0.2
+Approved Date: 5-3-22
+
+Files Included:
+   1. No changes to file include from Version 0.1
+   
+How to build LOAFR system and run unit testing:
+  1. Optional: Change logfile test data by changing the filepath
+     in the main method of Test.java
+  2. In terminal, compile files all files list above with the javac command
+  3. Run "java Test"
+  4. Original logfile data and filtered data output to terminal
+  
+  
+
+P4 - Implementation and Testing
 
 Version: 0.1
-Approved Data: 4-11-22
+Approved Date: 4-11-22
   
 Files Included:
   1. Analyzer.java: The Analyzer object is the primary data structure
