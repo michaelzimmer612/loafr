@@ -17,6 +17,11 @@ P5 - Agile / Scrum Development
 Version: 0.2
 Approved Date: 5-3-22
 
+Changes from v0.1:
+   1. Added Count and Average function in Analyzer class to calculate the count
+      and average of unfiltered log entries.
+   2. Added use case scenario testing in Test class
+
 Files Included:
    1. No changes to file include from Version 0.1
    
@@ -26,6 +31,8 @@ How to build LOAFR system and run unit testing:
   2. In terminal, compile files all files list above with the javac command
   3. Run "java Test"
   4. Original logfile data and filtered data output to terminal
+  5. At each filter step, the count and average blood sugar level of unfiltered
+     log entries is output.
   
   
 
