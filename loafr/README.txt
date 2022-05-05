@@ -21,9 +21,19 @@ Changes from v0.1:
    1. Added Count and Average function in Analyzer class to calculate the count
       and average of unfiltered log entries.
    2. Added use case scenario testing in Test class
+   3. Added SprintJarFinal.jar as quick showcase of sprint results
+   4. Added testdata3.csv for testing functions with a larger log file
+   
+How to demostrate v0.2 with jar file:
+  1. Download/locate the following:
+    -SprintJarFinal.jar
+    -testdata2.csv
+    -testdata3.csv
+  2. Ensure all 3 files are in the same folder
+  3. Open cmd line
+  4. Navigate directory containing above files
+  5. Run cmd "java -jar SprintJarFinal.jar" and view output
 
-Files Included:
-   1. No changes to file include from Version 0.1
    
 How to build LOAFR system and run unit testing:
   1. Optional: Change logfile test data by changing the filepath
