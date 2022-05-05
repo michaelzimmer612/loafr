@@ -71,34 +71,56 @@ public class Test {
 		a.printUnfilteredData();
 		System.out.println();
 		
+		System.out.println("count");
+		System.out.println(a.count());
+		System.out.println("average");
+		System.out.println(a.average());
+		
 		//apply a filter to imported data based on sugar level and display results
 		System.out.println("Filtered for rows with sugarlevel != 15 :");
 		a.addOperation("filter", "sugarLevel", 15, false);
 		a.printUnfilteredData();
-		System.out.println("Unfiltered log entry count: " + a.count());
 		System.out.println();
-	
+		
+		System.out.println("count");
+		System.out.println(a.count());
+		System.out.println("average");
+		System.out.println(a.average());
 		
 		//apply a filter to imported data based on sugar level, while previous filter is still in effect, and display results
 		System.out.println("Filtered for rows with sugarlevel != 5 :");
 		a.addOperation("filter", "sugarLevel", 5, false);
 		a.printUnfilteredData();
-		System.out.println("Unfiltered log entry count: " + a.count());
 		System.out.println();
+		
+		System.out.println("count");
+		System.out.println(a.count());
+		System.out.println("average");
+		System.out.println(a.average());
 		
 		//apply a filter to imported data based on sugar level, while previous filter is still in effect, and display results
 		System.out.println("Filtered for rows with sugarlevel = 350 :");
 		a.addOperation("filter", "sugarLevel", 350, true);
 		a.printUnfilteredData();
-		System.out.println("Unfiltered log entry count: " + a.count());
 		System.out.println();
+		
+		System.out.println("count");
+		System.out.println(a.count());
+		System.out.println("average");
+		System.out.println(a.average());
 		
 		//apply a filter to imported data based on sugar level, while previous filter is still in effect, and display results
 		System.out.println("Filtered for rows with sugarlevel = 5 :");
 		a.addOperation("filter", "sugarLevel", 5, true);
 		a.printUnfilteredData();
-		System.out.println("Unfiltered log entry count: " + a.count());
 		System.out.println();
+		
+		
+		System.out.println("count");
+		System.out.println(a.count());
+		System.out.println("average");
+		System.out.println(a.average());
+		
 		
 		
 		

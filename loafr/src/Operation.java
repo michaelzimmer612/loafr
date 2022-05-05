@@ -1,5 +1,4 @@
 
-// Traced to Section 4.2.6 of Design Document v1.4
 public class Operation {
 	private int timestamp;
 	// Column to Filter by

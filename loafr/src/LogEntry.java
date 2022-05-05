@@ -2,10 +2,10 @@
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime; 
 
-// Traced to Section 4.2.2 of Design Document v1.4
+
 public class LogEntry {
 	private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
-	
+	//private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");  
 	private String logFileType;
 	private LocalDateTime timestamp;
 	private String eventType;
@@ -43,14 +43,24 @@ public class LogEntry {
 		this.eventTypeIsFiltered = b;
 	}
 	
+	public boolean getEventTypeFilter() {
+		return this.eventTypeIsFiltered;
+	}
 	
 	public void setDeviceIDFilter(boolean b) {
 		this.deviceIDIsFiltered = b;
 	}
 	
+	public boolean getDeviceIDFilter() {
+		return this.deviceIDIsFiltered;
+	}
 	
 	public void setEventMessageFilter(boolean b) {
 		this.eventMessageIsFiltered = b;
+	}
+	
+	public boolean getEventMessageFilter() {
+		return this.eventMessageIsFiltered;
 	}
 	
 

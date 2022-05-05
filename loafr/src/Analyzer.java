@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.io.*;
 
 
-// Traced to Section 4.2.5 of Design Document v1.4
 public class Analyzer {
 	private ArrayList<LogFile> logFileList;
 	private ArrayList<Operation> operationList; 
@@ -101,6 +100,13 @@ public class Analyzer {
 		return;
 	}
 	
+	public ArrayList<LogFile> getLogFileList() {
+		return this.logFileList;
+	}
+	
+	public ArrayList<Operation> getOperationList(){
+		return this.operationList;
+	}
 	
 	public int count() {
 		int numLogFiles = getLogFileList().size();
@@ -108,11 +114,11 @@ public class Analyzer {
 		
 		for(int i = 0; i < numLogFiles; i++) {
 			LogFile currentLogFile = getLogFileList().get(i);
-			ArrayList<BloodSensorLogEntry> logEntries = currentLogFile.getLogEntryList();
+			ArrayList<LogEntry> logEntries = currentLogFile.getLogEntryList();
 			int numLogEntries = currentLogFile.size();
 			
 			for(int j = 0; j < numLogEntries; j++) {
-				BloodSensorLogEntry currentEntry = logEntries.get(j);
+				BloodSensorLogEntry currentEntry = (BloodSensorLogEntry) logEntries.get(j);
 				boolean deviceIDBool = currentEntry.getDeviceIDFilter();
 				boolean timestampBool = currentEntry.getTimestampFilter();
 				boolean eventTypeBool = currentEntry.getEventTypeFilter();
@@ -128,39 +134,32 @@ public class Analyzer {
 		return count;
 	}
 	
-	public int average() {
-		int numLogFiles = getLogFileList().size();
-		int count = 0;
+	public float average() {
+		int sum = 0;
+		int count = count();
 		
-		for(int i = 0; i < numLogFiles; i++) {
-			LogFile currentLogFile = getLogFileList().get(i);
-			ArrayList<BloodSensorLogEntry> logEntries = currentLogFile.getLogEntryList();
-			int numLogEntries = currentLogFile.size();
-			
-			for(int j = 0; j < numLogEntries; j++) {
-				BloodSensorLogEntry currentEntry = logEntries.get(j);
-				boolean deviceIDBool = currentEntry.getDeviceIDFilter();
-				boolean timestampBool = currentEntry.getTimestampFilter();
-				boolean eventTypeBool = currentEntry.getEventTypeFilter();
-				boolean eventMessageBool = currentEntry.getEventMessageFilter();
-				boolean sugarLevelBool = currentEntry.getSugarLevelFilter();
-				
-				if(!(deviceIDBool || timestampBool || eventTypeBool || eventMessageBool || sugarLevelBool)) {
-					count++;
+		for (int i = 0; i < logFileList.size(); i++) {
+			LogFile current_log_file = logFileList.get(i);
+			ArrayList<LogEntry> log_entries = current_log_file.getLogEntryList();
+
+			for(int x = 0; x < log_entries.size(); x++) {
+				BloodSensorLogEntry current_entry = (BloodSensorLogEntry) log_entries.get(x);
+
+				// If getSugarLevelFilter returns true, entry is not filtered 
+				if(!(current_entry.getSugarLevelFilter() || current_entry.getDeviceIDFilter() || current_entry.getTimestampFilter()  || current_entry.getEventTypeFilter() || current_entry.getEventMessageFilter())) {
+					// Add sugar level to sum
+					sum += current_entry.getSugarLevel();
 				}
 			}
 		}
-		average = count/numLogEntries;
-		return average;
-	}
-	
-	
-	public ArrayList<LogFile> getLogFileList() {
-		return this.logFileList;
-	}
-	
-	public ArrayList<Operation> getOperationList(){
-		return this.operationList;
+		
+		// Java will truncate this value if its not an integer
+		if(count!=0) {
+		return (sum/count);
+		}
+		else {
+			return 0;
+		}
 	}
 	
 

@@ -3,10 +3,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 
-// Traced to Section 4.2.1 of Design Document v1.4
+
 public class LogFile {
 	private String filepath;
-	private ArrayList<BloodSensorLogEntry> logEntryList;
+	private ArrayList<LogEntry> logEntryList;
 	
 	public LogFile(String filepath) {
 		this.filepath = filepath;
@@ -163,7 +163,7 @@ public class LogFile {
 		return;
 	}
 	
-	public ArrayList<BloodSensorLogEntry> getLogEntryList(){
+	public ArrayList<LogEntry> getLogEntryList(){
 		return this.logEntryList;
 	}
 	
